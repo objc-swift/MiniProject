@@ -9,27 +9,18 @@
 import UIKit
 
 class DemoListViewController: UIViewController {
-    
+
     @IBOutlet weak var topView: HorizontalListView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        for _ in 1...10 {
-            let newone = HorizontalListViewItem(cellClass: nil, viewModel: HorizontalListViewCellViewModel())
+        let addrs = ["https://media.giphy.com/media/l0ExncehJzexFpRHq/giphy.mp4","https://media.giphy.com/media/26gsqQxPQXHBiBEUU/giphy.mp4","https://media.giphy.com/media/oqLgjAahmDPvG/giphy.mp4","https://media.giphy.com/media/d1E1szXDsHUs3WvK/giphy.mp4","https://media.giphy.com/media/OiJjUsdAb11aE/giphy.mp4","https://media.giphy.com/media/4My4Bdf4cakLu/giphy.mp4"]
+        for addr in addrs {
+            let newone = HorizontalListViewItem(cellClass: ListViewVideoPlayerCell.self, viewModel: HorizontalListViewCellViewModel(entity: addr as AnyObject))
             self.topView.listItems.append(newone)
         }
         self.topView.refresh()
         // Do any additional setup after loading the view.
     }
 
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

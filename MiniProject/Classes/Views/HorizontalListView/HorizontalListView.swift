@@ -23,13 +23,22 @@ class HorizontalListViewItem {
     }
 }
 class HorizontalListViewCellViewModel {
-    var size:CGRect = CGRect(x: 0,y: 0,width: 0,height: 0)
     var entity:AnyObject!
+    init(entity:AnyObject) {
+        self.entity = entity
+    }
 }
 class HorizontalListView: UIView {
-    
+    private lazy var  normalStyleLayout:UICollectionViewFlowLayout = {
+        let layout =  UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        layout.minimumInteritemSpacing = 0
+        layout.minimumLineSpacing = 0
+        return layout
+    }()
     private lazy var collectionView: UICollectionView = {
-        let view = UICollectionView(frame: CGRect(x: 0, y: 0, width: 0, height: 0), collectionViewLayout: self.normalStyleLayout())
+        let view = UICollectionView(frame: CGRect(x: 0, y: 0, width: 0, height: 0), collectionViewLayout: self.normalStyleLayout)
+        view.isPagingEnabled = true
         return view
     }()
     private var cellIDReged:[String:Bool] =  [String:Bool]()
@@ -39,7 +48,7 @@ class HorizontalListView: UIView {
         didSet {
             switch style {
             case .normal:
-                self.collectionView.collectionViewLayout = self.normalStyleLayout()
+                self.collectionView.collectionViewLayout = self.normalStyleLayout
             case .zoom:
                 self.collectionView.collectionViewLayout = self.zoomStyleLayout()
             }
@@ -56,6 +65,7 @@ class HorizontalListView: UIView {
     override public func layoutSubviews() {
         super.layoutSubviews()
         self.collectionView.frame = self.bounds
+        normalStyleLayout.itemSize = CGSize(width: self.bounds.width, height: self.bounds.height)
     }
 }
 // MARK: - Private Methods
@@ -74,11 +84,6 @@ extension HorizontalListView {
     private func markCellRegistered(cellClass:AnyClass) {
         let cellClassIDString = NSStringFromClass(cellClass)
         cellIDReged[cellClassIDString] = true
-    }
-    private func normalStyleLayout() ->UICollectionViewLayout {
-        let layout:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: 20, height: 20)
-        return layout
     }
     private func zoomStyleLayout() ->UICollectionViewLayout {
         let layout:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
@@ -99,7 +104,6 @@ extension  HorizontalListView:UICollectionViewDataSource,UICollectionViewDelegat
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let thisItem:HorizontalListViewItem = listItems[indexPath.row]
         var cellClass:AnyClass = defaultCellClass
-        
         if let relativeCellClass:AnyClass = thisItem.relativeCellClass {
             // 如果有自定义cell，就使用自定义的cell，否则使用默认的
             cellClass = relativeCellClass
@@ -107,6 +111,7 @@ extension  HorizontalListView:UICollectionViewDataSource,UICollectionViewDelegat
         if !isCellRegistered(cellClass: cellClass) {
             // 尚未注册的cell，进行注册
             collectionView.registerCell(cellClass: cellClass)
+            markCellRegistered(cellClass: cellClass)
         }
         let cellClassIDString:String = NSStringFromClass(cellClass)
         var cell:HorizontalListViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: cellClassIDString, for: indexPath) as! HorizontalListViewCell

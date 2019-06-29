@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MiniProject/Classes/Views/HorizontalListView/HorizontalListView.swift"
-            timestampString = "583492899.443562"
+            timestampString = "583504255.288211"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
             landmarkName = "init(coder:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MiniProject/Classes/Views/HorizontalListView/HorizontalListView.swift"
-            timestampString = "583492899.444714"
+            timestampString = "583504255.288456"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "39"
-            endingLineNumber = "39"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
             landmarkName = "style"
             landmarkType = "24">
          </BreakpointContent>
@@ -42,27 +42,27 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MiniProject/Classes/Views/HorizontalListView/HorizontalListView.swift"
-            timestampString = "583492899.4453"
+            timestampString = "583504255.2885391"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
+            landmarkName = "style"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MiniProject/Classes/Views/HorizontalListView/HorizontalListView.swift"
+            timestampString = "583504255.2887"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "40"
             endingLineNumber = "40"
-            landmarkName = "style"
-            landmarkType = "24">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MiniProject/Classes/Views/HorizontalListView/HorizontalListView.swift"
-            timestampString = "583492899.445798"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
             landmarkName = "collectionView"
             landmarkType = "24">
          </BreakpointContent>
@@ -74,88 +74,88 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MiniProject/Classes/Views/HorizontalListView/HorizontalListView.swift"
-            timestampString = "583492899.446279"
+            timestampString = "583504255.288776"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "31"
-            endingLineNumber = "31"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
             landmarkName = "collectionView"
             landmarkType = "24">
             <Locations>
                <Location
-                  shouldBeEnabled = "No"
+                  shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "MiniProject.HorizontalListView.(collectionView in _C50A7AC8C48B765CB73DA4F0EF647A5F).getter : __C.UICollectionView"
                   moduleName = "MiniProject"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/yxy/Desktop/MiniProject/MiniProject/Classes/Views/HorizontalListView/HorizontalListView.swift"
-                  timestampString = "583490340.566837"
+                  timestampString = "583495145.331659"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "27"
-                  endingLineNumber = "27"
-                  offsetFromSymbolStart = "206">
+                  startingLineNumber = "40"
+                  endingLineNumber = "40"
+                  offsetFromSymbolStart = "188">
                </Location>
                <Location
-                  shouldBeEnabled = "No"
+                  shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "MiniProject.HorizontalListView.(collectionView in _C50A7AC8C48B765CB73DA4F0EF647A5F).setter : __C.UICollectionView"
                   moduleName = "MiniProject"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/yxy/Desktop/MiniProject/MiniProject/Classes/Views/HorizontalListView/HorizontalListView.swift"
-                  timestampString = "583490340.5685101"
+                  timestampString = "583495145.334378"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "27"
-                  endingLineNumber = "27"
-                  offsetFromSymbolStart = "128">
+                  startingLineNumber = "40"
+                  endingLineNumber = "40"
+                  offsetFromSymbolStart = "192">
                </Location>
                <Location
-                  shouldBeEnabled = "No"
+                  shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "MiniProject.HorizontalListView.(collectionView in _C50A7AC8C48B765CB73DA4F0EF647A5F).modify : __C.UICollectionView"
                   moduleName = "MiniProject"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/yxy/Desktop/MiniProject/MiniProject/Classes/Views/HorizontalListView/HorizontalListView.swift"
-                  timestampString = "583490340.571304"
+                  timestampString = "583495145.336234"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
                   endingLineNumber = "0"
-                  offsetFromSymbolStart = "26">
+                  offsetFromSymbolStart = "24">
                </Location>
                <Location
-                  shouldBeEnabled = "No"
+                  shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "MiniProject.HorizontalListView.(collectionView in _C50A7AC8C48B765CB73DA4F0EF647A5F).modify : __C.UICollectionView with unmangled suffix &quot;.resume.0&quot;"
                   moduleName = "MiniProject"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/yxy/Desktop/MiniProject/MiniProject/Classes/Views/HorizontalListView/HorizontalListView.swift"
-                  timestampString = "583490340.574538"
+                  timestampString = "583495145.337967"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "27"
-                  endingLineNumber = "27"
-                  offsetFromSymbolStart = "27">
+                  startingLineNumber = "40"
+                  endingLineNumber = "40"
+                  offsetFromSymbolStart = "32">
                </Location>
                <Location
-                  shouldBeEnabled = "No"
+                  shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "closure #1 () -&gt; __C.UICollectionView in MiniProject.HorizontalListView.(collectionView in _C50A7AC8C48B765CB73DA4F0EF647A5F).getter : __C.UICollectionView"
                   moduleName = "MiniProject"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/yxy/Desktop/MiniProject/MiniProject/Classes/Views/HorizontalListView/HorizontalListView.swift"
-                  timestampString = "583490340.576721"
+                  timestampString = "583495145.339597"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "28"
-                  endingLineNumber = "28"
-                  offsetFromSymbolStart = "29">
+                  startingLineNumber = "41"
+                  endingLineNumber = "41"
+                  offsetFromSymbolStart = "56">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -167,11 +167,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MiniProject/Classes/Views/HorizontalListView/HorizontalListView.swift"
-            timestampString = "583492899.446698"
+            timestampString = "583504255.288853"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "98"
-            endingLineNumber = "98"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
             landmarkName = "collectionView(_:numberOfItemsInSection:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -183,11 +183,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MiniProject/Classes/Views/HorizontalListView/HorizontalListView.swift"
-            timestampString = "583492899.447116"
+            timestampString = "583504255.288951"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "115"
-            endingLineNumber = "115"
+            startingLineNumber = "119"
+            endingLineNumber = "119"
             landmarkName = "collectionView(_:cellForItemAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -199,11 +199,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MiniProject/Classes/Views/HorizontalListView/HorizontalListView.swift"
-            timestampString = "583492899.447607"
+            timestampString = "583504255.289021"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "110"
-            endingLineNumber = "110"
+            startingLineNumber = "113"
+            endingLineNumber = "113"
             landmarkName = "collectionView(_:cellForItemAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -215,11 +215,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MiniProject/Classes/Views/HorizontalListView/HorizontalListView.swift"
-            timestampString = "583492899.448123"
+            timestampString = "583504255.2891051"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "58"
-            endingLineNumber = "58"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
             landmarkName = "layoutSubviews()"
             landmarkType = "7">
          </BreakpointContent>
@@ -334,6 +334,22 @@
             endingLineNumber = "21"
             landmarkName = "isNibExist(cellClass:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MiniProject/Classes/Views/HorizontalListView/Cell/HorizontalListViewDefaultCell.swift"
+            timestampString = "583495664.059899"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "viewModel"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

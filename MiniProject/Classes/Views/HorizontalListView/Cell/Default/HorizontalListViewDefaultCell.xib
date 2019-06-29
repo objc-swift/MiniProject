@@ -34,6 +34,9 @@
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="267" height="227"/>
+            <connections>
+                <outlet property="descLabel" destination="qig-zq-oZt" id="i6y-Js-VRu"/>
+            </connections>
             <point key="canvasLocation" x="55.797101449275367" y="23.102678571428569"/>
         </collectionViewCell>
     </objects>

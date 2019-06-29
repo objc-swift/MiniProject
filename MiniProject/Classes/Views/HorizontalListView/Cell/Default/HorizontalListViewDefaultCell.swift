@@ -9,15 +9,16 @@
 import UIKit
 
 class HorizontalListViewDefaultCell: UICollectionViewCell,HorizontalListViewCell {
+    
+    @IBOutlet weak var descLabel: UILabel!
     var viewModel: HorizontalListViewCellViewModel! {
         didSet {
-            
+            let desc = viewModel.entity as! String
+            self.descLabel.text = desc
         }
     }
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        // Initialization code
     }
     deinit {
         
