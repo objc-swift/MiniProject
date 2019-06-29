@@ -5,7 +5,6 @@
 //  Created by yxyyxy on 2019/6/29.
 //  Copyright © 2019 yxy. All rights reserved.
 //
-
 import UIKit
 import AVKit
 class ListViewVideoPlayerCell: UICollectionViewCell,HorizontalListViewCell {
@@ -23,7 +22,7 @@ class ListViewVideoPlayerCell: UICollectionViewCell,HorizontalListViewCell {
         self.contentView.addSubview(self.avPlayerView)
     }
     override func layoutSubviews() {
-         self.avPlayerView.frame = self.bounds
+        super.layoutSubviews()
+        self.avPlayerView.frame = self.bounds
     }
-
 }

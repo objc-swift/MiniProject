@@ -13,6 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DemoListViewController" customModule="MiniProject" customModuleProvider="target">
             <connections>
                 <outlet property="TopView" destination="xJc-g8-r9r" id="IXG-VW-wPo"/>
+                <outlet property="bottomView" destination="vLn-tz-4BK" id="afu-83-8Yu"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -28,11 +29,19 @@
                         <constraint firstAttribute="width" secondItem="xJc-g8-r9r" secondAttribute="height" multiplier="1:1" id="FcO-98-Qby"/>
                     </constraints>
                 </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vLn-tz-4BK" customClass="HorizontalListView" customModule="MiniProject" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="458" width="414" height="438"/>
+                    <color key="backgroundColor" red="0.2470588235" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="vLn-tz-4BK" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="BbE-0G-gik"/>
+                <constraint firstItem="vLn-tz-4BK" firstAttribute="top" secondItem="xJc-g8-r9r" secondAttribute="bottom" id="LlK-h4-8yT"/>
+                <constraint firstItem="vLn-tz-4BK" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="Pco-UZ-YYF"/>
                 <constraint firstItem="xJc-g8-r9r" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="ZDV-D2-1Iy"/>
                 <constraint firstItem="xJc-g8-r9r" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="dgi-MX-iYd"/>
+                <constraint firstAttribute="bottom" secondItem="vLn-tz-4BK" secondAttribute="bottom" id="fHw-cn-9TQ"/>
                 <constraint firstItem="xJc-g8-r9r" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="pgD-Ij-lJo"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>

@@ -34,6 +34,9 @@ class AVPlayerView: UIView {
     override func layoutSubviews() {
         self.avPlayerLayer.frame = self.bounds
     }
+    deinit {
+        
+    }
 }
 
 // MARK: - Private Methods

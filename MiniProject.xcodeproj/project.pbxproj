@@ -22,6 +22,7 @@
 		9A869D6822C7733D00135D6C /* ListViewVideoPlayerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A869D6622C7733D00135D6C /* ListViewVideoPlayerCell.swift */; };
 		9A869D6922C7733D00135D6C /* ListViewVideoPlayerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A869D6722C7733D00135D6C /* ListViewVideoPlayerCell.xib */; };
 		9A869D6F22C789D500135D6C /* AVPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A869D6E22C789D500135D6C /* AVPlayerView.swift */; };
+		9A869D7222C7C2C400135D6C /* ZoomCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A869D7122C7C2C400135D6C /* ZoomCollectionViewLayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		9A869D6622C7733D00135D6C /* ListViewVideoPlayerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewVideoPlayerCell.swift; sourceTree = "<group>"; };
 		9A869D6722C7733D00135D6C /* ListViewVideoPlayerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListViewVideoPlayerCell.xib; sourceTree = "<group>"; };
 		9A869D6E22C789D500135D6C /* AVPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVPlayerView.swift; sourceTree = "<group>"; };
+		9A869D7122C7C2C400135D6C /* ZoomCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomCollectionViewLayout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +183,7 @@
 		9A869D5222C6223800135D6C /* HorizontalListView */ = {
 			isa = PBXGroup;
 			children = (
+				9A869D7022C7C28B00135D6C /* Layout */,
 				9A869D6122C7653E00135D6C /* Cell */,
 				9A869D5022C6183200135D6C /* HorizontalListView.swift */,
 			);
@@ -243,6 +246,14 @@
 				9A869D6E22C789D500135D6C /* AVPlayerView.swift */,
 			);
 			path = AVPlayerView;
+			sourceTree = "<group>";
+		};
+		9A869D7022C7C28B00135D6C /* Layout */ = {
+			isa = PBXGroup;
+			children = (
+				9A869D7122C7C2C400135D6C /* ZoomCollectionViewLayout.swift */,
+			);
+			path = Layout;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -384,6 +395,7 @@
 				9A869D5122C6183200135D6C /* HorizontalListView.swift in Sources */,
 				9A869D6F22C789D500135D6C /* AVPlayerView.swift in Sources */,
 				9A869D5A22C73B5500135D6C /* Observable.swift in Sources */,
+				9A869D7222C7C2C400135D6C /* ZoomCollectionViewLayout.swift in Sources */,
 				9A869D5822C71EC300135D6C /* UICollectionViewExtension.swift in Sources */,
 				9A869D5D22C73C4A00135D6C /* DemoListViewController.swift in Sources */,
 			);

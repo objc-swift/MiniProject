@@ -38,7 +38,7 @@ class HorizontalListView: UIView {
     }()
     private lazy var collectionView: UICollectionView = {
         let view = UICollectionView(frame: CGRect(x: 0, y: 0, width: 0, height: 0), collectionViewLayout: self.normalStyleLayout)
-        view.isPagingEnabled = true
+        //view.isPagingEnabled = true
         return view
     }()
     private var cellIDReged:[String:Bool] =  [String:Bool]()
@@ -77,17 +77,19 @@ extension HorizontalListView {
         self.collectionView.registerCell(cellClass: defaultCellClass)
         markCellRegistered(cellClass: defaultCellClass)
     }
+    
+    /// 判断cell是否已经注册
     private func isCellRegistered(cellClass:AnyClass) ->Bool {
         let cellClassIDString = NSStringFromClass(cellClass)
         return  cellIDReged[cellClassIDString] ?? false
     }
+    /// 标记某个CellClass已注册
     private func markCellRegistered(cellClass:AnyClass) {
         let cellClassIDString = NSStringFromClass(cellClass)
         cellIDReged[cellClassIDString] = true
     }
     private func zoomStyleLayout() ->UICollectionViewLayout {
-        let layout:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: 20, height: 20)
+        let layout:ZoomCollectionViewLayout = ZoomCollectionViewLayout()
         return layout
     }
 }
