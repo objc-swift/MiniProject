@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MiniGalleryViewController" customModule="MiniProject" customModuleProvider="target">
+            <connections>
+                <outlet property="bottomView" destination="7NZ-4z-F0R" id="EWQ-iU-9PH"/>
+                <outlet property="topView" destination="bLw-RV-g3h" id="hwD-5g-1mk"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bLw-RV-g3h" customClass="HorizontalListView" customModule="MiniProject" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="44" width="414" height="414"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="bLw-RV-g3h" secondAttribute="height" multiplier="1:1" id="QcF-Lv-THe"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7NZ-4z-F0R" customClass="HorizontalListView" customModule="MiniProject" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="458" width="414" height="404"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zx2-Wl-1rK">
+                    <rect key="frame" x="344" y="64" width="50" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="50" id="aDX-O9-bFT"/>
+                        <constraint firstAttribute="height" constant="50" id="zPs-7T-Bo8"/>
+                    </constraints>
+                    <state key="normal" title="返回"/>
+                    <connections>
+                        <action selector="backTap:" destination="-1" eventType="touchUpInside" id="mDE-mq-Inx"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="zx2-Wl-1rK" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="29j-mo-Low"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="zx2-Wl-1rK" secondAttribute="trailing" constant="20" id="7oa-fJ-JER"/>
+                <constraint firstItem="7NZ-4z-F0R" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="D53-tx-irz"/>
+                <constraint firstItem="bLw-RV-g3h" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="OAS-TS-6F2"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="7NZ-4z-F0R" secondAttribute="trailing" id="gaz-iZ-Ro4"/>
+                <constraint firstItem="bLw-RV-g3h" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="iHf-3s-n7Z"/>
+                <constraint firstItem="bLw-RV-g3h" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="pOh-Zj-Xxc"/>
+                <constraint firstItem="7NZ-4z-F0R" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="qn5-w3-Unw"/>
+                <constraint firstItem="7NZ-4z-F0R" firstAttribute="top" secondItem="bLw-RV-g3h" secondAttribute="bottom" id="u3o-Bx-crg"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+        </view>
+    </objects>
+</document>

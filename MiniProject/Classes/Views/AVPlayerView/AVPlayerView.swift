@@ -8,19 +8,28 @@
 
 
 import AVKit
-class AVPlayerView: UIView {
+class AVPlayerView: UIView,AVAssetResourceLoaderDelegate{
     private var avPlayer:AVPlayer = AVPlayer()
     private var avPlayerLayer:AVPlayerLayer!
     var isRepeat:Bool = true
     var urlString:String! {
         didSet {
             var url:URL!
-            if self.urlString.components(separatedBy: ":").first == "http" {
+            let urlHead = self.urlString.components(separatedBy: ":").first!
+            if urlHead == "http" || urlHead == "https" {
                 url = URL(string: self.urlString) // http 的url
             }else {
                 url = URL(fileURLWithPath: self.urlString) // 本地url
             }
-            self.avPlayer.replaceCurrentItem(with: AVPlayerItem(url: url))
+            /*
+             AVURLAsset *asset = [AVURLAsset URLAssetWithURL:audioUrl options:nil];
+             AVPlayerItem *playerItem = [AVPlayerItem playerItemWithAsset:asset];
+             AVPlayer *player = [AVPlayer playerWithPlayerItem:playerItem];
+             */
+            let asset = AVURLAsset(url: url)
+            //asset.resourceLoader.setDelegate(self, queue:DispatchQueue.main)
+            let playerItem = AVPlayerItem(asset: asset)
+            self.avPlayer.replaceCurrentItem(with:playerItem)
         }
     }
     override init(frame: CGRect) {
@@ -37,6 +46,14 @@ class AVPlayerView: UIView {
     deinit {
         
     }
+  
+//    func resourceLoader(_ resourceLoader: AVAssetResourceLoader, shouldWaitForLoadingOfRequestedResource loadingRequest: AVAssetResourceLoadingRequest) -> Bool {
+//        print("#######")
+//        return true
+//    }
+//    func resourceLoader(_ resourceLoader: AVAssetResourceLoader, didCancel loadingRequest: AVAssetResourceLoadingRequest) {
+//
+//    }
 }
 
 // MARK: - Private Methods
@@ -46,6 +63,7 @@ extension AVPlayerView {
         self.avPlayerLayer.videoGravity = .resizeAspectFill
         self.layer.addSublayer(self.avPlayerLayer)
     }
+
 }
 
 // MARK: - Public Methods

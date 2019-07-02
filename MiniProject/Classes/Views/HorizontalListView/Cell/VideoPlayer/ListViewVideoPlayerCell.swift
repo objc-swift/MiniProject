@@ -9,11 +9,14 @@ import UIKit
 import AVKit
 class ListViewVideoPlayerCell: UICollectionViewCell,HorizontalListViewCell {
     var avPlayerView:AVPlayerView!
-    var viewModel: HorizontalListViewCellViewModel! {
+    var viewModel: HorizontalListViewCellViewModel? {
         didSet {
-            let urlString:String = viewModel.entity as! String
-            avPlayerView.urlString = urlString
-            avPlayerView.play()
+            if let vm = viewModel {
+                let item = vm.entity as! GalleryItem
+                avPlayerView.urlString = item.videoUrl
+                avPlayerView.play()
+            }
+            
         }
     }
     override func awakeFromNib() {

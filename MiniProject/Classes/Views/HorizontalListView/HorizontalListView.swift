@@ -12,12 +12,12 @@ enum HorizontalListViewStyle {
     case zoom // zoom-in zomm-out
 }
 protocol HorizontalListViewCell {
-    var viewModel:HorizontalListViewCellViewModel! {get set}
+    var viewModel:HorizontalListViewCellViewModel? {get set}
 }
 class HorizontalListViewItem {
     var relativeCellClass:AnyClass?
     var relativeViewModel:HorizontalListViewCellViewModel!
-    init(cellClass:AnyClass?,viewModel:HorizontalListViewCellViewModel) {
+    init(cellClass:AnyClass?,viewModel:HorizontalListViewCellViewModel?) {
         self.relativeCellClass = cellClass
         self.relativeViewModel = viewModel
     }
@@ -28,7 +28,7 @@ class HorizontalListViewCellViewModel {
         self.entity = entity
     }
 }
-class HorizontalListView: UIView {
+class HorizontalListView: UIView,PageObject {
     private lazy var  normalStyleLayout:UICollectionViewFlowLayout = {
         let layout =  UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
@@ -36,9 +36,12 @@ class HorizontalListView: UIView {
         layout.minimumLineSpacing = 0
         return layout
     }()
+    private lazy var zoomStyleLayout:ZoomCollectionViewLayout = {
+        return ZoomCollectionViewLayout()
+    }()
     private lazy var collectionView: UICollectionView = {
         let view = UICollectionView(frame: CGRect(x: 0, y: 0, width: 0, height: 0), collectionViewLayout: self.normalStyleLayout)
-        //view.isPagingEnabled = true
+        view.backgroundColor = .clear
         return view
     }()
     private var cellIDReged:[String:Bool] =  [String:Bool]()
@@ -48,12 +51,23 @@ class HorizontalListView: UIView {
         didSet {
             switch style {
             case .normal:
-                self.collectionView.collectionViewLayout = self.normalStyleLayout
+                self.noramlStyleSetting()
             case .zoom:
-                self.collectionView.collectionViewLayout = self.zoomStyleLayout()
+                self.zoomStyleSetting()
             }
         }
     }
+    var currentLayout:UICollectionViewFlowLayout!
+    var contentSize:CGSize {
+        return self.collectionView.contentSize
+    }
+    var isOriginSender:Bool = false
+    /// event
+    var didPageChange:((CGFloat)->Void)?
+    var didSelectItem:((Int)->Void)?
+    /// storage handler
+    var pageChangeHandler: ((CGFloat, PageObject) -> Void)?
+    var becomeOriginSenderHandler:((PageObject)->Void)?
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.initializeSubViews()
@@ -77,7 +91,6 @@ extension HorizontalListView {
         self.collectionView.registerCell(cellClass: defaultCellClass)
         markCellRegistered(cellClass: defaultCellClass)
     }
-    
     /// 判断cell是否已经注册
     private func isCellRegistered(cellClass:AnyClass) ->Bool {
         let cellClassIDString = NSStringFromClass(cellClass)
@@ -88,17 +101,39 @@ extension HorizontalListView {
         let cellClassIDString = NSStringFromClass(cellClass)
         cellIDReged[cellClassIDString] = true
     }
-    private func zoomStyleLayout() ->UICollectionViewLayout {
-        let layout:ZoomCollectionViewLayout = ZoomCollectionViewLayout()
-        return layout
+    private func noramlStyleSetting() {
+        self.currentLayout = self.normalStyleLayout
+        self.collectionView.collectionViewLayout = self.normalStyleLayout
+        self.collectionView.isPagingEnabled = true
+    }
+    private func zoomStyleSetting() {
+        self.collectionView.collectionViewLayout = self.zoomStyleLayout
+        self.currentLayout = self.zoomStyleLayout
+        self.collectionView.isPagingEnabled = false
     }
 }
 // MARK: - Public Methods
 extension HorizontalListView {
     public func refresh() {
-        collectionView.reloadData()
+        self.collectionView.reloadData()
+    }
+    public func scrollToX(x:CGFloat) {
+        self.collectionView.contentOffset = CGPoint(x: x, y: 0)
+    }
+    // page 有可能是1.2 1.3 这种形式
+}
+// MARK:PageObject protocol
+extension HorizontalListView {
+    func scrollToPage(page:CGFloat) {
+        let page_w = self.currentLayout.itemSize.width + self.currentLayout.minimumLineSpacing
+        self.collectionView.contentOffset = CGPoint(x: page_w * page , y: 0)
+    }
+    func initPageObject(pageChangeHandler: @escaping (CGFloat, PageObject) -> Void, becomeOriginSenderHandler: @escaping (PageObject) -> Void) {
+        self.pageChangeHandler = pageChangeHandler
+        self.becomeOriginSenderHandler = becomeOriginSenderHandler
     }
 }
+// MARK:UICollectionViewDelegate
 extension  HorizontalListView:UICollectionViewDataSource,UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.listItems.count
@@ -119,6 +154,32 @@ extension  HorizontalListView:UICollectionViewDataSource,UICollectionViewDelegat
         var cell:HorizontalListViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: cellClassIDString, for: indexPath) as! HorizontalListViewCell
         cell.viewModel = thisItem.relativeViewModel
         return cell as! UICollectionViewCell
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.didSelectItem?(indexPath.row)
+    }
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        guard self.didPageChange != nil || self.pageChangeHandler != nil else {
+            return
+        }
+        // 进度 , itwmWidth + padding 为一页宽度
+        let offx = scrollView.contentOffset.x
+        let page_w = self.currentLayout.itemSize.width + self.currentLayout.minimumLineSpacing
+        let page_f  = offx / page_w
+        self.didPageChange?(page_f)
+        self.pageChangeHandler?(page_f,self)
+    }
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        guard self.style == .zoom else {
+            return
+        }
+        let offx = targetContentOffset.pointee.x
+        let page_w = self.zoomStyleLayout.itemWidth + self.zoomStyleLayout.minimumLineSpacing
+        let page_f  = offx / page_w
+        targetContentOffset.pointee.x = CGFloat(roundf((Float(page_f)))) * page_w
+    }
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        self.becomeOriginSenderHandler?(self)
     }
 }
 
