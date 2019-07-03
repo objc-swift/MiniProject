@@ -83,7 +83,7 @@ class DemoListViewController: UIViewController {
             miniUIVC.bottomStyle = .zoom
             // 附加2对
             let exItem0 = HorizontalListViewItem(cellClass: ADCollectionViewCell.self, viewModel: nil)
-            let exItem1 = HorizontalListViewItem(cellClass: NotificationCollectionViewCell.self.self, viewModel: nil)
+            let exItem1 = HorizontalListViewItem(cellClass: NotificationCollectionViewCell.self, viewModel: nil)
             let exItem2 = HorizontalListViewItem(cellClass: HorizontalListViewDefaultCell.self, viewModel: nil)
             let exItem3 = HorizontalListViewItem(cellClass: HotCollectionViewCell.self, viewModel: nil)
             
